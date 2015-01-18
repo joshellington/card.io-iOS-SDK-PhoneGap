@@ -33,6 +33,11 @@
 
     CardIOPaymentViewController *paymentViewController = [[CardIOPaymentViewController alloc] initWithPaymentDelegate:self];
 
+    NSNumber *hideLogo = [options objectForKey:@"hideLogo"];
+    if (hideLogo) {
+      paymentViewController.hideCardIOLogo = [hideLogo boolValue];
+    }
+
     NSNumber *collectCVV = [options objectForKey:@"cvv"];
     if(collectCVV) {
         paymentViewController.collectCVV = [collectCVV boolValue];
