@@ -33,6 +33,11 @@
 
     CardIOPaymentViewController *paymentViewController = [[CardIOPaymentViewController alloc] initWithPaymentDelegate:self];
 
+    NSString *instructions = [options objectForKey:@"instructions"];
+    if (instructions) {
+      paymentViewController.scanInstructions = instructions;
+    }
+
     NSNumber *hideLogo = [options objectForKey:@"hideLogo"];
     if (hideLogo) {
       paymentViewController.hideCardIOLogo = [hideLogo boolValue];
